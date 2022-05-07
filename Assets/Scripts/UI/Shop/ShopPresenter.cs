@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopPresenter : MonoBehaviour
+public class GShopPresenter : MonoBehaviour
 {
     [SerializeField] private ShopView _shopView;
     [SerializeField] private GameObject _tapToStart;
