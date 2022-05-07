@@ -1,18 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private PlayerMovement _movement;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        _movement = GetComponent<PlayerMovement>();
     }
 }

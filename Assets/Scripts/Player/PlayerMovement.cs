@@ -1,17 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TapToStartPresenter _tapToStart;
+    private Rigidbody _rigidbody;
+
+    private void OnEnable()
     {
-        
+        _tapToStart.Started += OnStarted;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
+    {
+        _tapToStart.Started -= OnStarted;
+    }
+
+    private void OnStarted()
     {
         
     }
