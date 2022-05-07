@@ -1,8 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TapToStartView : MonoBehaviour
+public class TapToStartView : MonoBehaviour, IPointerClickHandler
 {
-    
+    public event Action Clicked;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Clicked?.Invoke();
+    }
 }
