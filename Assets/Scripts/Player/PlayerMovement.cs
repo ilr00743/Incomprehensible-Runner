@@ -4,16 +4,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private TapToStartPresenter _tapToStart;
-    [SerializeField] private FinishLine _finishLine;
-    [SerializeField] private Obstacle[] _obstacles;
+    [SerializeField] private FinishLine _finishLine; 
     [SerializeField] private float _moveForwardSpeed;
     [SerializeField] private float _strafeSpeed;
     private Rigidbody _rigidbody;
+    private PlayerColliderHandler _collider;
     private bool _canRun;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _collider = GetComponent<PlayerColliderHandler>();
     }
 
     private void Start()
@@ -25,22 +26,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _tapToStart.Started += OnStarted;
         _finishLine.Finished += OnFinished;
-        
-        foreach (var obstacle in _obstacles)
-        {
-            obstacle.Hit += OnHit;
-        }
+        _collider.Hit += OnHit;
     }
 
     private void OnDisable()
     {
         _tapToStart.Started -= OnStarted;
         _finishLine.Finished -= OnFinished;
-        
-        foreach (var obstacle in _obstacles)
-        {
-            obstacle.Hit -= OnHit;
-        }
+        _collider.Hit -= OnHit;
     }
 
     private void OnHit()

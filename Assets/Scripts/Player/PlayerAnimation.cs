@@ -7,34 +7,27 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private TapToStartPresenter _tapToStart;
     [SerializeField] private FinishLine _finishLine;
-    [SerializeField] private Obstacle[] _obstacles;
     private Animator _animator;
+    private PlayerColliderHandler _playerCollider;
 
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        _playerCollider = GetComponent<PlayerColliderHandler>();
     }
 
     private void OnEnable()
     {
         _tapToStart.Started += OnStarted;
         _finishLine.Finished += OnFinished;
-        
-        foreach (var obstacle in _obstacles)
-        {
-            obstacle.Hit += OnHit;
-        }
+        _playerCollider.Hit += OnHit;
     }
 
     private void OnDisable()
     {
         _tapToStart.Started -= OnStarted;
         _finishLine.Finished -= OnFinished;
-        
-        foreach (var obstacle in _obstacles)
-        {
-            obstacle.Hit -= OnHit;
-        }
+        _playerCollider.Hit -= OnHit;
     }
 
     private void OnHit()
