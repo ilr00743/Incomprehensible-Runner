@@ -5,12 +5,11 @@ using UnityEngine;
 public class Palm : Obstacle
 {
     [SerializeField] private ParticleSystem _particle;
-    [SerializeField] private PlayerMovement _player;
-    
+
     public override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        if (collision.gameObject.TryGetComponent(out _player))
+        if (collision.gameObject.TryGetComponent(out PlayerMovement player))
         {
             _particle.Play();       
         }    
