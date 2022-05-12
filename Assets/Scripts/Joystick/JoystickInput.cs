@@ -8,26 +8,18 @@ public class JoystickInput : MonoBehaviour
     [SerializeField] private PlayerMovement _movement;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private FinishLine _finishLine;
-    [SerializeField] private Obstacle[] _obstacles;
+    [SerializeField] private PlayerColliderHandler _playerCollider;
 
     private void OnEnable()
     {
         _finishLine.Finished += OnFinished;
-        
-        foreach (var obstacle in _obstacles)
-        {
-            obstacle.Hit += OnHit;
-        }
+        _playerCollider.Hit += OnHit;
     }
 
     private void OnDisable()
     {
         _finishLine.Finished -= OnFinished;
-        
-        foreach (var obstacle in _obstacles)
-        {
-            obstacle.Hit -= OnHit;
-        }
+        _playerCollider.Hit -= OnHit;
     }
 
     private void OnHit()
