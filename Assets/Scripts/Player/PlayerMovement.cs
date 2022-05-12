@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnHit()
     {
         _canRun = false;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     private void OnStarted()
