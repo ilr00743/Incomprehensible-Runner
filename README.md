@@ -9,3 +9,4 @@ In process:
 - shop system;
 - save system;
 - suit changing system;
+- animation for UI.
