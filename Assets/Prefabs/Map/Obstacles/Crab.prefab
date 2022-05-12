@@ -657,8 +657,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3512015005645154885}
   - component: {fileID: 2530070963590038315}
-  - component: {fileID: 7838568431001242608}
   - component: {fileID: 1155050213087731551}
+  - component: {fileID: 5255099729451509906}
   m_Layer: 0
   m_Name: Crab
   m_TagString: Untagged
@@ -696,18 +696,6 @@ CapsuleCollider:
   m_Height: 0.79
   m_Direction: 1
   m_Center: {x: 0, y: 0.51, z: 0.5}
---- !u!114 &7838568431001242608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4320921984493056255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1adb2b649e0cf041a1740570dc7ef96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1155050213087731551
 Animator:
   serializedVersion: 3
@@ -727,6 +715,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5255099729451509906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4320921984493056255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c5f52dd1b827944ba91af91349504a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4376361922152202186
 GameObject:
   m_ObjectHideFlags: 0
