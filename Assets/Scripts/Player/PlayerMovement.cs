@@ -56,8 +56,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_canRun == false) return;
         
+        float minPositionX = -6.23f;
+        float maxPositionX = 6.23f;
+
+        float clampedPositionX = Mathf.Clamp(_rigidbody.position.x, minPositionX, maxPositionX);
         _rigidbody.MovePosition(
-            new Vector3(_rigidbody.position.x + direction.x * _strafeSpeed * Time.fixedDeltaTime,0, 
+            new Vector3(clampedPositionX + direction.x * _strafeSpeed * Time.fixedDeltaTime,0, 
                 _rigidbody.position.z + _moveForwardSpeed * Time.fixedDeltaTime));
     }
 }

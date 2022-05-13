@@ -21,7 +21,7 @@ public class EndLevelView : MonoBehaviour
         }
     }
 
-    private static bool HasNotInternetConnection()
+    private bool HasNotInternetConnection()
     {
         return Application.internetReachability == NetworkReachability.NotReachable;
     }

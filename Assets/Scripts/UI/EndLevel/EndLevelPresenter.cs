@@ -11,6 +11,7 @@ public class EndLevelPresenter : MonoBehaviour
     [SerializeField] private MoneyHolder _playerMoney;
     [SerializeField] private MoneyCollector _moneyCollector;
     private bool _canLoadNextLevel;
+    
     private void Start()
     {
         Advertisement.Initialize("4746828", false);
