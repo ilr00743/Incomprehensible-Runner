@@ -7,14 +7,14 @@ using UnityEngine.TestTools;
 
 public class PlayerTest
 {
-    private PlayerMovement playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
-    // A Test behaves as an ordinary method
+    private PlayerMovement _playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
+
     [Test]
     public void WhenPlayerCollideObstacle_PlayerCantMove()
     {
-        playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
-        playerMovement.OnHit();
-        Assert.IsFalse(playerMovement.CanRun);
+        _playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
+        _playerMovement.OnHit();
+        Assert.IsFalse(_playerMovement.CanRun);
     }
     
     [Test]
@@ -31,8 +31,8 @@ public class PlayerTest
     [Test]
     public void WhenLevelStarted_PlayerCanMove()
     {
-        playerMovement.OnStarted();
-        Assert.IsTrue(playerMovement.CanRun);
+        _playerMovement.OnStarted();
+        Assert.IsTrue(_playerMovement.CanRun);
     }
     
     
