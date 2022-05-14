@@ -30,6 +30,4 @@ public class PlayerTest
         _playerMovement.OnStarted();
         Assert.IsTrue(_playerMovement.CanRun);
     }
-    
-    
 }
