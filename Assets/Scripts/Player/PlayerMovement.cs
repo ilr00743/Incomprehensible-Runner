@@ -11,7 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private PlayerColliderHandler _collider;
     private bool _canRun;
 
-    private void Awake()
+    public Vector3 Velocity => _rigidbody.velocity;
+    public bool CanRun => _canRun;
+    
+    public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _collider = GetComponent<PlayerColliderHandler>();
@@ -36,20 +39,21 @@ public class PlayerMovement : MonoBehaviour
         _collider.Hit -= OnHit;
     }
 
-    private void OnHit()
-    {
-        _canRun = false;
-        _rigidbody.velocity = Vector3.zero;
-    }
-
-    private void OnStarted()
+    public void OnStarted()
     {
         _canRun = true;
+    }
+
+    public void OnHit()
+    {
+        _canRun = false;
+        // _rigidbody.velocity = Vector3.zero;
     }
 
     private void OnFinished()
     {
         _canRun = false;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     public void Move(Vector3 direction)

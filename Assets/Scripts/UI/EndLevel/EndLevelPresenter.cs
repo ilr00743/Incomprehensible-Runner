@@ -53,7 +53,7 @@ public class EndLevelPresenter : MonoBehaviour
         }
     }
 
-    private void OnHit()
+    public void OnHit()
     {
         _canLoadNextLevel = false;
         StartCoroutine(ShowPanel(1.5f));

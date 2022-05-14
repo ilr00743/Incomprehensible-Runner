@@ -37,9 +37,10 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetTrigger(AnimationParams.Run);
     }
 
-    private void OnFinished()
+    public void OnFinished()
     {
         _animator.SetTrigger(AnimationParams.Dance);
+        
     }
     
     private static class AnimationParams
