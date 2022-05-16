@@ -39,15 +39,15 @@ public class PlayerMovement : MonoBehaviour
         _collider.Hit -= OnHit;
     }
 
-    public void OnStarted()
+    private void OnStarted()
     {
         _canRun = true;
     }
 
-    public void OnHit()
+    private void OnHit()
     {
         _canRun = false;
-        // _rigidbody.velocity = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     private void OnFinished()
@@ -60,8 +60,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_canRun == false) return;
         
-        float minPositionX = -6.23f;
-        float maxPositionX = 6.23f;
+        float minPositionX = -6.1f;
+        float maxPositionX = 6.1f;
 
         float clampedPositionX = Mathf.Clamp(_rigidbody.position.x, minPositionX, maxPositionX);
         _rigidbody.MovePosition(
