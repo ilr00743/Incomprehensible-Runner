@@ -8,7 +8,6 @@ public class PlayerTest
     [Test]
     public void WhenPlayerCollideObstacle_PlayerCantMove()
     {
-        _playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
         _playerMovement.OnHit();
         Assert.IsFalse(_playerMovement.CanRun);
     }
