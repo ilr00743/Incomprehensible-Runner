@@ -6,7 +6,8 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] _particles;
     [SerializeField] private AudioSetting _audioSetting;
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _confettiSound;
+    [SerializeField] private AudioSource _music;
 
     public event Action Finished;
 
@@ -20,14 +21,10 @@ public class FinishLine : MonoBehaviour
         _audioSetting.Clicked -= OnClicked;
     }
 
-    private void Awake()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
-
     private void Start()
     {
-        _audioSource.mute = _audioSetting.IsMute;
+        _confettiSound.mute = _audioSetting.IsMute;
+        _music.mute = _audioSetting.IsMute;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,7 +37,8 @@ public class FinishLine : MonoBehaviour
 
     private void OnClicked(bool isMuted)
     {
-        _audioSource.mute = !isMuted;
+        _music.mute = !isMuted;
+        _confettiSound.mute = !isMuted;
     }
 
     private IEnumerator FinishAfterSeconds()
@@ -52,7 +50,8 @@ public class FinishLine : MonoBehaviour
         {
             _particles[i].Play();
         }
-        _audioSource.Play();
+        _confettiSound.Play();
+        _music.Play();
         Finished?.Invoke();
     }
 }

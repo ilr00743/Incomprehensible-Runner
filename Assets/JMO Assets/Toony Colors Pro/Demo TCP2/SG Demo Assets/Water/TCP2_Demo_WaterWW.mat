@@ -87,8 +87,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UVWaveAmplitude: 0.3
-    - _UVWaveFrequency: 3.04
+    - _UVWaveAmplitude: 0.302
+    - _UVWaveFrequency: 6.41
     - _UVWaveSpeed: 1
     - _ZWrite: 1
     - __dummy__: 0
