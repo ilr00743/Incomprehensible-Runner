@@ -1,3 +1,4 @@
+using Runner.Finish;
 using Runner.UI.TapToStart;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Runner.Camera
     public class CameraState : MonoBehaviour
     {
         [SerializeField] private TapToStartPresenter _tapToStart;
-        [SerializeField] private FinishLine.FinishLine _finishLine;
+        [SerializeField] private FinishLine _finishLine;
         private Animator _animator;
 
         private void Awake()

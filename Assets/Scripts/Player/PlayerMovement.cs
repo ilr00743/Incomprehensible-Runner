@@ -1,3 +1,4 @@
+using Runner.Finish;
 using Runner.UI.TapToStart;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -7,7 +8,7 @@ namespace Runner.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private TapToStartPresenter _tapToStart;
-        [SerializeField] private FinishLine.FinishLine _finishLine; 
+        [SerializeField] private FinishLine _finishLine; 
         [SerializeField] private float _moveForwardSpeed;
         [SerializeField] private float _strafeSpeed;
         private Rigidbody _rigidbody;

@@ -4,7 +4,7 @@ using Runner.Player;
 using Runner.UI.Settings;
 using UnityEngine;
 
-namespace Runner.FinishLine
+namespace Runner.Finish
 {
     public class FinishLine : MonoBehaviour
     {

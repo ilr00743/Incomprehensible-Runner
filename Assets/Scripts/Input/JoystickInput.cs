@@ -1,3 +1,4 @@
+using Runner.Finish;
 using Runner.Player;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Runner.Input
     {
         [SerializeField] private PlayerMovement _movement;
         [SerializeField] private Joystick _joystick;
-        [SerializeField] private FinishLine.FinishLine _finishLine;
+        [SerializeField] private FinishLine _finishLine;
         [SerializeField] private PlayerColliderHandler _playerCollider;
 
         private void OnEnable()

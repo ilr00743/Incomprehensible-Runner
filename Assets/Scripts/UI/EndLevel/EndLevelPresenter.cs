@@ -1,4 +1,5 @@
 using System.Collections;
+using Runner.Finish;
 using Runner.Money;
 using Runner.Player;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Runner.UI.EndLevel
     {
         [SerializeField] private EndLevelView _view;
         [SerializeField] private PlayerColliderHandler _playerCollider;
-        [SerializeField] private FinishLine.FinishLine _finishLine;
+        [SerializeField] private FinishLine _finishLine;
         [SerializeField] private MoneyHolder _playerMoney;
         [SerializeField] private MoneyCollector _moneyCollector;
         private bool _canLoadNextLevel;
