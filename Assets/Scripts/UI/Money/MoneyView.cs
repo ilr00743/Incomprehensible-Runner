@@ -1,25 +1,28 @@
-using System;
+using Runner.Money;
 using TMPro;
 using UnityEngine;
 
-public class MoneyView : MonoBehaviour
+namespace Runner.UI.Money
 {
-    [SerializeField] private MoneyHolder _playerMoney;
-    [SerializeField] private TMP_Text _text;
+    public class MoneyView : MonoBehaviour
+    {
+        [SerializeField] private MoneyHolder _playerMoney;
+        [SerializeField] private TMP_Text _text;
     
-    private void OnEnable()
-    {
-        _text.text =_playerMoney.GetBalance().ToString();
-        _playerMoney.BalanceChanged += OnBalanceChanged;
-    }
+        private void OnEnable()
+        {
+            _text.text =_playerMoney.GetBalance().ToString();
+            _playerMoney.BalanceChanged += OnBalanceChanged;
+        }
 
-    private void OnDisable()
-    {
-        _playerMoney.BalanceChanged -= OnBalanceChanged;
-    }
+        private void OnDisable()
+        {
+            _playerMoney.BalanceChanged -= OnBalanceChanged;
+        }
 
-    private void OnBalanceChanged()
-    {
-        _text.text = _playerMoney.Balance.ToString();
+        private void OnBalanceChanged()
+        {
+            _text.text = _playerMoney.Balance.ToString();
+        }
     }
 }

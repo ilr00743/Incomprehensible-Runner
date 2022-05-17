@@ -1,53 +1,57 @@
+using Runner.UI.TapToStart;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+namespace Runner.Player
 {
-    [SerializeField] private TapToStartPresenter _tapToStart;
-    [SerializeField] private FinishLine _finishLine;
-    private Animator _animator;
-    private PlayerColliderHandler _playerCollider;
-
-    private void Awake()
+    public class PlayerAnimation : MonoBehaviour
     {
-        _animator = GetComponentInChildren<Animator>();
-        _playerCollider = GetComponent<PlayerColliderHandler>();
-    }
+        [SerializeField] private TapToStartPresenter _tapToStart;
+        [SerializeField] private FinishLine.FinishLine _finishLine;
+        private Animator _animator;
+        private PlayerColliderHandler _playerCollider;
 
-    private void OnEnable()
-    {
-        _tapToStart.Started += OnStarted;
-        _finishLine.Finished += OnFinished;
-        _playerCollider.Hit += OnHit;
-    }
+        private void Awake()
+        {
+            _animator = GetComponentInChildren<Animator>();
+            _playerCollider = GetComponent<PlayerColliderHandler>();
+        }
 
-    private void OnDisable()
-    {
-        _tapToStart.Started -= OnStarted;
-        _finishLine.Finished -= OnFinished;
-        _playerCollider.Hit -= OnHit;
-    }
+        private void OnEnable()
+        {
+            _tapToStart.Started += OnStarted;
+            _finishLine.Finished += OnFinished;
+            _playerCollider.Hit += OnHit;
+        }
 
-    private void OnHit()
-    {
-        _animator.SetTrigger(AnimationParams.Death);
-    }
+        private void OnDisable()
+        {
+            _tapToStart.Started -= OnStarted;
+            _finishLine.Finished -= OnFinished;
+            _playerCollider.Hit -= OnHit;
+        }
 
-    private void OnStarted()
-    {
-        _animator.SetTrigger(AnimationParams.Run);
-    }
+        private void OnHit()
+        {
+            _animator.SetTrigger(AnimationParams.Death);
+        }
 
-    public void OnFinished()
-    {
-        _animator.SetTrigger(AnimationParams.Dance);
+        private void OnStarted()
+        {
+            _animator.SetTrigger(AnimationParams.Run);
+        }
+
+        public void OnFinished()
+        {
+            _animator.SetTrigger(AnimationParams.Dance);
         
-    }
+        }
     
-    private static class AnimationParams
-    {
-        public static readonly string Idle = nameof(Idle);
-        public static readonly string Run = nameof(Run);
-        public static readonly string Dance = nameof(Dance);
-        public static readonly string Death = nameof(Death);
+        private static class AnimationParams
+        {
+            public static readonly string Idle = nameof(Idle);
+            public static readonly string Run = nameof(Run);
+            public static readonly string Dance = nameof(Dance);
+            public static readonly string Death = nameof(Death);
+        }
     }
 }

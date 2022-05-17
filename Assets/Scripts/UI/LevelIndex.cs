@@ -2,17 +2,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelIndex : MonoBehaviour
+namespace Runner.UI
 {
-    private TMP_Text _levelIndex;
-
-    private void Awake()
+    public class LevelIndex : MonoBehaviour
     {
-        _levelIndex = GetComponent<TMP_Text>();
-    }
+        private TMP_Text _levelIndex;
 
-    private void Start()
-    {
-        _levelIndex.SetText(SceneManager.GetActiveScene().name);
+        private void Awake()
+        {
+            _levelIndex = GetComponent<TMP_Text>();
+        }
+
+        private void Start()
+        {
+            _levelIndex.SetText(SceneManager.GetActiveScene().name);
+        }
     }
 }

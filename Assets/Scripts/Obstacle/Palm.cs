@@ -1,17 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Runner.Player;
 using UnityEngine;
 
-public class Palm : Obstacle
+namespace Runner.Obstacle
 {
-    [SerializeField] private ParticleSystem _particle;
-
-    private void OnCollisionEnter(Collision collision)
+    public class Palm : Obstacle
     {
-        if (collision.gameObject.TryGetComponent(out PlayerMovement player))
+        [SerializeField] private ParticleSystem _particle;
+
+        private void OnCollisionEnter(Collision collision)
         {
-            _particle.Play();
+            if (collision.gameObject.TryGetComponent(out PlayerMovement player))
+            {
+                _particle.Play();
+            }
         }
     }
 }

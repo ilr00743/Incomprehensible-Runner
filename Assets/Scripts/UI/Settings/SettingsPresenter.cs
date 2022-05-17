@@ -1,33 +1,36 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsPresenter : MonoBehaviour
+namespace Runner.UI.Settings
 {
-    [SerializeField] private SettingsView _settingsView;
-    [SerializeField] private GameObject _tapToStart;
-    [SerializeField] private Button _settingsButton;
-
-    private void OnEnable()
+    public class SettingsPresenter : MonoBehaviour
     {
-        _settingsButton.onClick.AddListener(OnOpenShopButtonClicked);
-        _settingsView.CloseButtonClicked += OnCloseButtonClicked;
-    }
+        [SerializeField] private SettingsView _settingsView;
+        [SerializeField] private GameObject _tapToStart;
+        [SerializeField] private Button _settingsButton;
 
-    private void OnDisable()
-    {
-        _settingsButton.onClick.RemoveListener(OnOpenShopButtonClicked);
-        _settingsView.CloseButtonClicked -= OnCloseButtonClicked;
-    }
+        private void OnEnable()
+        {
+            _settingsButton.onClick.AddListener(OnOpenShopButtonClicked);
+            _settingsView.CloseButtonClicked += OnCloseButtonClicked;
+        }
 
-    private void OnCloseButtonClicked()
-    {
-        _settingsView.gameObject.SetActive(false);
-        _tapToStart.SetActive(true);
-    }
+        private void OnDisable()
+        {
+            _settingsButton.onClick.RemoveListener(OnOpenShopButtonClicked);
+            _settingsView.CloseButtonClicked -= OnCloseButtonClicked;
+        }
 
-    private void OnOpenShopButtonClicked()
-    {
-        _settingsView.gameObject.SetActive(true);
-        _tapToStart.SetActive(false);
+        private void OnCloseButtonClicked()
+        {
+            _settingsView.gameObject.SetActive(false);
+            _tapToStart.SetActive(true);
+        }
+
+        private void OnOpenShopButtonClicked()
+        {
+            _settingsView.gameObject.SetActive(true);
+            _tapToStart.SetActive(false);
+        }
     }
 }
