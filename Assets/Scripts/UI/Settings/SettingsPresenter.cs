@@ -11,13 +11,13 @@ namespace Runner.UI.Settings
 
         private void OnEnable()
         {
-            _settingsButton.onClick.AddListener(OnOpenShopButtonClicked);
+            _settingsButton.onClick.AddListener(OnOpenSettingsButtonClicked);
             _settingsView.CloseButtonClicked += OnCloseButtonClicked;
         }
 
         private void OnDisable()
         {
-            _settingsButton.onClick.RemoveListener(OnOpenShopButtonClicked);
+            _settingsButton.onClick.RemoveListener(OnOpenSettingsButtonClicked);
             _settingsView.CloseButtonClicked -= OnCloseButtonClicked;
         }
 
@@ -27,7 +27,7 @@ namespace Runner.UI.Settings
             _tapToStart.SetActive(true);
         }
 
-        private void OnOpenShopButtonClicked()
+        private void OnOpenSettingsButtonClicked()
         {
             _settingsView.gameObject.SetActive(true);
             _tapToStart.SetActive(false);
