@@ -6,20 +6,29 @@ using UnityEngine.TestTools;
 
 public class PlayerTest
 {
-    // A Test behaves as an ordinary method
+    private PlayerMovement _playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
     [Test]
-    public void PlayerTestSimplePasses()
+    public void WhenPlayerCollideObstacle_PlayerCantMove()
     {
-        // Use the Assert class to test conditions
+        _playerMovement = new GameObject().AddComponent<PlayerMovement>().GetComponent<PlayerMovement>();
+        _playerMovement.OnHit();
+        Assert.IsFalse(_playerMovement.CanRun);
+    }
+    [Test]
+    public void WhenPlayerCollideCoin_AddOneCoinToWallet()
+    {
+        MoneyHolder playerMoney = new GameObject().AddComponent<MoneyHolder>().GetComponent<MoneyHolder>();
+        Coin coin = new GameObject().AddComponent<Coin>().GetComponent<Coin>();
+ 
+        playerMoney.AddMoney(coin.Value);
+ 
+        Assert.AreEqual(1, playerMoney.Balance);
+    }
+    [Test]
+    public void WhenLevelStarted_PlayerCanMove()
+    {
+        _playerMovement.OnStarted();
+        Assert.IsTrue(_playerMovement.CanRun);
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator PlayerTestWithEnumeratorPasses()
-    {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
-    }
 }
