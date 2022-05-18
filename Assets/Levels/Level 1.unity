@@ -5641,11 +5641,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &546593235 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5064174420596371527, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-  m_PrefabInstance: {fileID: 935575267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &548369839 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4878040243782477084, guid: f602fa2e007f5484ea73e0e9ea541139, type: 3}
@@ -7801,11 +7796,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8011585726015965523, guid: 141eccfb4266a3642b1fcf12a8564dc2, type: 3}
   m_PrefabInstance: {fileID: 832010513}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &833061724 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6082448510082746040, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-  m_PrefabInstance: {fileID: 935575267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &835835923 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3879876204709375767, guid: f396fa89007264240918878fc6643fa4, type: 3}
@@ -8559,11 +8549,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 403484, guid: dc8f0d303746c2a4b89ee60884906304, type: 3}
   m_PrefabInstance: {fileID: 1018715792}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &907727632 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 481014052805324351, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-  m_PrefabInstance: {fileID: 935575267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &930330316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8660,6 +8645,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481014052785910405, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30.671429
+      objectReference: {fileID: 0}
     - target: {fileID: 481014052805301501, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -8685,25 +8674,17 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3919003298836225716, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
+      propertyPath: _finishMusic
+      value: 
+      objectReference: {fileID: 935575268}
+    - target: {fileID: 3919003298836225716, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
       propertyPath: _audioSetting
       value: 
       objectReference: {fileID: 214427283}
     - target: {fileID: 3919003298836225716, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-      propertyPath: _particles.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3919003298836225716, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-      propertyPath: _particles.Array.data[0]
+      propertyPath: _confettiSound
       value: 
-      objectReference: {fileID: 546593235}
-    - target: {fileID: 3919003298836225716, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-      propertyPath: _particles.Array.data[1]
-      value: 
-      objectReference: {fileID: 907727632}
-    - target: {fileID: 3919003298836225716, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
-      propertyPath: _particles.Array.data[2]
-      value: 
-      objectReference: {fileID: 833061724}
+      objectReference: {fileID: 1685192143}
     - target: {fileID: 5064174420596364545, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -8715,6 +8696,10 @@ PrefabInstance:
     - target: {fileID: 5064174420596458521, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064174420615870807, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30.671429
       objectReference: {fileID: 0}
     - target: {fileID: 5996684859945836199, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
       propertyPath: m_RootOrder
@@ -8772,12 +8757,21 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6082448510102240250, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 37.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8153456331923692373, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
+--- !u!82 &935575268 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6159478019613965816, guid: 8177eeb4a1df3bf4c8df8c35ca1dcbc3, type: 3}
+  m_PrefabInstance: {fileID: 935575267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &948632496
 PrefabInstance:
   m_ObjectHideFlags: 0
