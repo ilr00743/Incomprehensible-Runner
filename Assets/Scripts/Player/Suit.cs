@@ -1,9 +1,6 @@
-﻿using System;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-namespace Player
+namespace Runner.Player
 {
     public class Suit : MonoBehaviour
     {

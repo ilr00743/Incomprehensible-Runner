@@ -1,22 +1,25 @@
 using System;
 using UnityEngine;
 
-public class PlayerColliderHandler : MonoBehaviour
+namespace Runner.Player
 {
-    private CapsuleCollider _collider;
-    public event Action Hit;
-
-    private void Awake()
+    public class PlayerColliderHandler : MonoBehaviour
     {
-        _collider = GetComponent<CapsuleCollider>();
-    }
+        private CapsuleCollider _collider;
+        public event Action Hit;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
+        private void Awake()
         {
-            Hit?.Invoke();
-            _collider.enabled = false;
+            _collider = GetComponent<CapsuleCollider>();
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent(out Obstacle.Obstacle obstacle))
+            {
+                Hit?.Invoke();
+                _collider.enabled = false;
+            }
         }
     }
 }

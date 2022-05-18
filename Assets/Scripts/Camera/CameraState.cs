@@ -1,45 +1,47 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Runner.Finish;
+using Runner.UI.TapToStart;
 using UnityEngine;
 
-public class CameraState : MonoBehaviour
+namespace Runner.Camera
 {
-    [SerializeField] private TapToStartPresenter _tapToStart;
-    [SerializeField] private FinishLine _finishLine;
-    private Animator _animator;
-
-    private void Awake()
+    public class CameraState : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        [SerializeField] private TapToStartPresenter _tapToStart;
+        [SerializeField] private FinishLine _finishLine;
+        private Animator _animator;
 
-    private void OnEnable()
-    {
-        _tapToStart.Started += OnStarted;
-        _finishLine.Finished += OnFinished;
-    }
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
 
-    private void OnDisable()
-    {
-        _tapToStart.Started -= OnStarted;
-        _finishLine.Finished -= OnFinished;
-    }
+        private void OnEnable()
+        {
+            _tapToStart.Started += OnStarted;
+            _finishLine.Finished += OnFinished;
+        }
 
-    private void OnStarted()
-    {
-        _animator.SetTrigger(AnimationParams.Run);
-    }
+        private void OnDisable()
+        {
+            _tapToStart.Started -= OnStarted;
+            _finishLine.Finished -= OnFinished;
+        }
 
-    private void OnFinished()
-    {
-        _animator.SetTrigger(AnimationParams.Finish);
-    }
+        private void OnStarted()
+        {
+            _animator.SetTrigger(AnimationParams.Run);
+        }
 
-    private static class AnimationParams
-    {
-        public static readonly string Idle = nameof(Idle);
-        public static readonly string Run = nameof(Run);
-        public static readonly string Finish = nameof(Finish);
+        private void OnFinished()
+        {
+            _animator.SetTrigger(AnimationParams.Finish);
+        }
+
+        private static class AnimationParams
+        {
+            public static readonly string Idle = nameof(Idle);
+            public static readonly string Run = nameof(Run);
+            public static readonly string Finish = nameof(Finish);
+        }
     }
 }

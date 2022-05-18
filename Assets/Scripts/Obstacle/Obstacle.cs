@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+namespace Runner.Obstacle
 {
+    public class Obstacle : MonoBehaviour
+    {
     
+    }
 }

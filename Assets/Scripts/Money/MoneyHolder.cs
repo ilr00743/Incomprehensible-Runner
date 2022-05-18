@@ -1,49 +1,52 @@
 ﻿using System;
 using UnityEngine;
 
-public class MoneyHolder : MonoBehaviour
+namespace Runner.Money
 {
-    private int _balance;
-    public int Balance => _balance;
-
-    public event Action BalanceChanged;
-
-    private void Start()
+    public class MoneyHolder : MonoBehaviour
     {
-        _balance = GetBalance();
-    }
+        private int _balance;
+        public int Balance => _balance;
 
-    public void AddMoney(int value)
-    {
-        if (value < 0)
+        public event Action BalanceChanged;
+
+        private void Start()
         {
-            throw new ArgumentOutOfRangeException();
+            _balance = GetBalance();
         }
 
-        _balance += value;
-        SaveBalance();
-        BalanceChanged?.Invoke();
-    }
-
-    public void SpendMoney(int value)
-    {
-        if (value <= 0 || _balance <= 0)
+        public void AddMoney(int value)
         {
-            throw new ArgumentOutOfRangeException();
+            if (value < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            _balance += value;
+            SaveBalance();
+            BalanceChanged?.Invoke();
         }
 
-        _balance -= value;
-        SaveBalance();
-        BalanceChanged?.Invoke();
-    }
+        public void SpendMoney(int value)
+        {
+            if (value <= 0 || _balance <= 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
 
-    private void SaveBalance()
-    {
-        PlayerPrefs.SetInt("MoneyBalance", _balance);
-    }
+            _balance -= value;
+            SaveBalance();
+            BalanceChanged?.Invoke();
+        }
 
-    public int GetBalance()
-    {
-        return PlayerPrefs.GetInt("MoneyBalance");
+        private void SaveBalance()
+        {
+            PlayerPrefs.SetInt("MoneyBalance", _balance);
+        }
+
+        public int GetBalance()
+        {
+            return PlayerPrefs.GetInt("MoneyBalance");
+        }
     }
 }

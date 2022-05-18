@@ -1,40 +1,44 @@
+using Runner.UI.Settings;
 using UnityEngine;
 
-public class PlayerAudio : MonoBehaviour
+namespace Runner.Player
 {
-    [SerializeField] private AudioSetting _audioSetting;
-    private AudioSource _audioSource;
-
-    private void Awake()
+    public class PlayerAudio : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-    }
+        [SerializeField] private AudioSetting _audioSetting;
+        private AudioSource _audioSource;
 
-    private void Start()
-    {
-        _audioSource.mute = _audioSetting.IsMute;
-    }
-
-    private void OnEnable()
-    {
-        _audioSetting.Clicked += OnClicked;
-    }
-
-    private void OnDisable()
-    {
-        _audioSetting.Clicked -= OnClicked;
-    }
-
-    private void OnClicked(bool isMute)
-    {
-        _audioSource.mute = !isMute;
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.collider.TryGetComponent(out Obstacle obstacle))
+        private void Awake()
         {
-            _audioSource.Play();
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        private void Start()
+        {
+            _audioSource.mute = _audioSetting.IsMute;
+        }
+
+        private void OnEnable()
+        {
+            _audioSetting.Clicked += OnClicked;
+        }
+
+        private void OnDisable()
+        {
+            _audioSetting.Clicked -= OnClicked;
+        }
+
+        private void OnClicked(bool isMute)
+        {
+            _audioSource.mute = !isMute;
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.collider.TryGetComponent(out Obstacle.Obstacle obstacle))
+            {
+                _audioSource.Play();
+            }
         }
     }
 }
