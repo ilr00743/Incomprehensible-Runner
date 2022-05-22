@@ -1,5 +1,5 @@
 # ***Incomprehensible Runner***
-***Project for pre-diplopa practice***
+***Project for pre-diploma practice***
 
 Link to apk: https://illiar.itch.io/incomprehensible-runner
 
