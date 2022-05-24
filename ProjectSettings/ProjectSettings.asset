@@ -772,7 +772,7 @@ PlayerSettings:
     Purchasing: 0
     UDP: 0
     UNet: 1
-    Unity Ads: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -786,10 +786,10 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 2151de3e-9924-43fa-a09e-153399a60d75
+  cloudProjectId: 55986c78-d256-4118-a6ad-62f5d44dadb8
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Diplom
+  projectName: Incomprehensible Runner
   organizationId: ilr_242
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

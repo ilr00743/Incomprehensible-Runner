@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
-public class EndLevelPresenter : MonoBehaviour
+public class EndLevelPresenter : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     [SerializeField] private EndLevelView _view;
     [SerializeField] private PlayerColliderHandler _playerCollider;
@@ -14,8 +14,8 @@ public class EndLevelPresenter : MonoBehaviour
     
     private void Start()
     {
-        Advertisement.Initialize("4746828", false);
-        Advertisement.Load("Rewarded_Android");
+        Advertisement.Initialize("4768873", false, this);
+        Advertisement.Load("Rewarded_Android", this);
     }
     
     private void OnEnable()
@@ -47,7 +47,7 @@ public class EndLevelPresenter : MonoBehaviour
         }
         else
         {
-            Advertisement.Show("Rewarded_Android");
+            Advertisement.Show("Rewarded_Android", this);
             _playerMoney.AddMoney(_moneyCollector.CollectedCoin);
             StartCoroutine(LoadLevel(2f));
         }
@@ -90,4 +90,20 @@ public class EndLevelPresenter : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
+    public void OnInitializationComplete() { }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message) { }
+
+    public void OnUnityAdsAdLoaded(string placementId) { }
+
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) { }
+
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message) { }
+
+    public void OnUnityAdsShowStart(string placementId) { }
+
+    public void OnUnityAdsShowClick(string placementId) { }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState) { }
 }
