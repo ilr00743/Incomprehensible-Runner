@@ -9,13 +9,13 @@ public class SettingsPresenter : MonoBehaviour
 
     private void OnEnable()
     {
-        _settingsButton.onClick.AddListener(OnOpenSettingsButtonClicked);
+        _settingsButton.onClick.AddListener(OnOpenShopButtonClicked);
         _settingsView.CloseButtonClicked += OnCloseButtonClicked;
     }
 
     private void OnDisable()
     {
-        _settingsButton.onClick.RemoveListener(OnOpenSettingsButtonClicked);
+        _settingsButton.onClick.RemoveListener(OnOpenShopButtonClicked);
         _settingsView.CloseButtonClicked -= OnCloseButtonClicked;
     }
 
@@ -25,7 +25,7 @@ public class SettingsPresenter : MonoBehaviour
         _tapToStart.SetActive(true);
     }
 
-    private void OnOpenSettingsButtonClicked()
+    private void OnOpenShopButtonClicked()
     {
         _settingsView.gameObject.SetActive(true);
         _tapToStart.SetActive(false);

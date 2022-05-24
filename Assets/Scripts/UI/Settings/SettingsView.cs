@@ -2,27 +2,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runner.UI.Settings
+public class SettingsView : MonoBehaviour
 {
-    public class SettingsView : MonoBehaviour
+    [SerializeField] private Button _closeButton;
+
+    public event Action CloseButtonClicked;
+
+    private void OnEnable()
     {
-        [SerializeField] private Button _closeButton;
+        _closeButton.onClick.AddListener(OnCloseButtonClicked);
+    }
 
-        public event Action CloseButtonClicked;
+    private void OnDisable()
+    {
+        _closeButton.onClick.RemoveListener(OnCloseButtonClicked);
+    }
 
-        private void OnEnable()
-        {
-            _closeButton.onClick.AddListener(OnCloseButtonClicked);
-        }
-
-        private void OnDisable()
-        {
-            _closeButton.onClick.RemoveListener(OnCloseButtonClicked);
-        }
-
-        private void OnCloseButtonClicked()
-        {
-            CloseButtonClicked?.Invoke();
-        }
+    private void OnCloseButtonClicked()
+    {
+        CloseButtonClicked?.Invoke();
     }
 }

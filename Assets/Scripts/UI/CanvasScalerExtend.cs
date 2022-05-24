@@ -1,20 +1,20 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runner.UI
+public class CanvasScalerExtend : MonoBehaviour
 {
-    public class CanvasScalerExtend : MonoBehaviour
+    private CanvasScaler _canvasScaler;
+
+    private void Awake()
     {
-        private CanvasScaler _canvasScaler;
+        _canvasScaler = GetComponent<CanvasScaler>();
+    }
 
-        private void Awake()
-        {
-            _canvasScaler = GetComponent<CanvasScaler>();
-        }
-
-        private void Start()
-        {
-            _canvasScaler.referenceResolution = new Vector2(Screen.height, Screen.width);
-        }
+    private void Start()
+    {
+        _canvasScaler.referenceResolution = new Vector2(Screen.height, Screen.width);
     }
 }
