@@ -32,15 +32,7 @@ public class AudioSetting : MonoBehaviour
 
     private void ToggleMute()
     {
-        if (!_isMute)
-        {
-            _image.sprite = _soundOn;
-            _isMute = true;
-        }
-        else
-        {
-            _image.sprite = _soundOff;
-            _isMute = false;
-        }
+        _image.sprite = _isMute == false ? _soundOn : _soundOff;
+        _isMute = !_isMute;
     }
 }
